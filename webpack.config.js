@@ -16,6 +16,13 @@ module.exports = webpackConfigEnv => {
     webpackConfigEnv
   });
 
+  defaultConfig.plugins = defaultConfig.plugins.filter(
+    p => p.constructor.name !== "CleanWebpackPlugin"
+  );
+  serverConfig.plugins = serverConfig.plugins.filter(
+    p => p.constructor.name !== "CleanWebpackPlugin"
+  );
+
   return [
     webpackMerge.smart(defaultConfig, {}),
     webpackMerge.smart(serverConfig, {
