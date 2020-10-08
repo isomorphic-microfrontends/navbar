@@ -9,9 +9,7 @@ export default function Root(props) {
   // adding this causes the client side to break
   React.useEffect(() => {
     const jssStyles = document.querySelector("#jss-server-side");
-    // console.log(jssStyles.parentElement.removeChild(jssStyles));
     if (jssStyles) {
-      //jssStyles.remove();
       jssStyles.parentElement.removeChild(jssStyles);
     }
   }, []);
