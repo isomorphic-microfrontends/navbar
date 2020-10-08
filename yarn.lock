@@ -7016,10 +7016,10 @@ signal-exit@^3.0.0, signal-exit@^3.0.2:
   resolved "https://registry.yarnpkg.com/signal-exit/-/signal-exit-3.0.3.tgz#a1410c2edd8f077b08b4e253c8eacfcaf057461c"
   integrity sha512-VUJ49FC8U1OxwZLxIbTTrDvLnf/6TDgxZcK8wxR8zs13xpx7xbG60ndBlhNrFi2EMuFRoeDoJO7wthSLq42EjA==
 
-single-spa-react@^2.10.4:
-  version "2.13.0"
-  resolved "https://registry.yarnpkg.com/single-spa-react/-/single-spa-react-2.13.0.tgz#080f840dbbf67b1094e51ad785e1b8cc0d516aad"
-  integrity sha512-7p3sC8VX+UgJoSRmjoZTmyQsVWggdtgAYhSWbQGUYbpIbiA/IrORFegUo9KIvzo0Dy4ehKGpjlro5f+J72rC1g==
+single-spa-react@^3.0.1:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/single-spa-react/-/single-spa-react-3.1.0.tgz#4e98eb0fd3358e585cb5b696d9e0874bf473d443"
+  integrity sha512-dzSAFk0W3bNf0B3fvyjgji7ukBn8L4erHCBqbU7hgqrwu88ro8pqcWDJKugQPruRp3dceSXunMw4n9epzE1t8w==
 
 sisteransi@^1.0.4:
   version "1.0.5"

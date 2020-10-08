@@ -8,7 +8,7 @@ const lifecycles = singleSpaReact({
   React,
   ReactDOM,
   rootComponent: Root,
-  renderType: "hydrate"
+//  renderType: "hydrate"
 });
 
 export const bootstrap = lifecycles.bootstrap;
