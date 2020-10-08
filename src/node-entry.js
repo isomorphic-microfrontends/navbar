@@ -4,9 +4,9 @@ import Root from "./root.component.js";
 import theme from "./theme";
 import { ServerStyleSheets, ThemeProvider } from "@material-ui/core/styles";
 
-export const getResponseHeaders = (props) => {
+export const getResponseHeaders = props => {
   return {
-    "x-navbar": 1,
+    "x-navbar": 1
   };
 };
 
@@ -22,6 +22,6 @@ export function serverRender(props) {
 
   // Grab the CSS from the sheets.
   const css = sheets.toString();
-   
+
   return { htmlStream, sheets: css };
 }
