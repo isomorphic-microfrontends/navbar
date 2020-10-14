@@ -41,11 +41,7 @@ export default function NavBar({ title, themeChange }) {
           >
             <HomeIcon />
           </IconButton>
-          <Typography
-            variant="h6"
-            className={classes.appTitle}
-            style={{ flexGrow: 1 }}
-          >
+          <Typography variant="h6" className={classes.root}>
             {title}
           </Typography>
           <div className={classes.sectionButtons}>
