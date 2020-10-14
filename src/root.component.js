@@ -1,10 +1,21 @@
 import React from "react";
-import ReactDOM from "react-dom";
-import { ThemeProvider } from "@material-ui/core/styles";
+import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
+import CssBaseline from "@material-ui/core/CssBaseline";
 import NavBar from "./components/navbar";
-import theme from "./theme";
+// import theme from "./theme";
 
 export default function Root(props) {
+  const [darkMode, setDarkMode] = React.useState(true);
+  const theme = React.useMemo(
+    () =>
+      createMuiTheme({
+        palette: {
+          type: darkMode ? "dark" : "light"
+        }
+      }),
+    [darkMode]
+  );
+
   // TODO - This needs to be handled a bit differently I guess
   // adding this causes the client side to break
   React.useEffect(() => {
@@ -16,7 +27,8 @@ export default function Root(props) {
 
   return (
     <ThemeProvider theme={theme}>
-      <NavBar title={props.name} />
+      <CssBaseline />
+      <NavBar title={props.name} themeChange={() => setDarkMode(!darkMode)} />
     </ThemeProvider>
   );
 }

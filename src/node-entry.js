@@ -17,5 +17,6 @@ export function serverRender(props) {
   // Grab the CSS from the sheets.
   const css = sheets.toString();
 
-  return { htmlStream, sheets: css };
+  const assets = `<style id="jss-server-side">${css}</style>`;
+  return { content: htmlStream, assets };
 }

@@ -1,5 +1,8 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
+import { makeStyles, useTheme } from "@material-ui/core/styles";
+
+import Brightness4Icon from "@material-ui/icons/Brightness4";
+import Brightness7Icon from "@material-ui/icons/Brightness7";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
@@ -19,9 +22,9 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function NavBar({ title }) {
+export default function NavBar({ title, themeChange }) {
   const classes = useStyles();
-
+  const theme = useTheme();
   return (
     <div className={classes.root}>
       <AppBar position="static">
@@ -37,7 +40,13 @@ export default function NavBar({ title }) {
           <Typography variant="h6" className={classes.title}>
             {title}
           </Typography>
-          <Button color="inherit">Login</Button>
+          <Button color="inherit" onClick={() => themeChange()}>
+            {theme.palette.type !== "dark" ? (
+              <Brightness4Icon fontSize="small" />
+            ) : (
+              <Brightness7Icon fontSize="small" />
+            )}
+          </Button>
         </Toolbar>
       </AppBar>
     </div>
