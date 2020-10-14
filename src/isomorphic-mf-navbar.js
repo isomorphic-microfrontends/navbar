@@ -7,8 +7,8 @@ import Root from "./root.component";
 const lifecycles = singleSpaReact({
   React,
   ReactDOM,
-  rootComponent: Root,
-  renderType: "hydrate"
+  rootComponent: Root
+  //  renderType: "hydrate"
 });
 
 export const bootstrap = lifecycles.bootstrap;

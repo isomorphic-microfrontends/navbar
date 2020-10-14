@@ -1,17 +1,8 @@
 import React from "react";
-import {
-  createMuiTheme,
-  ThemeProvider,
-  createGenerateClassName
-} from "@material-ui/core/styles";
+import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import NavBar from "./components/navbar";
 // import theme from "./theme";
-
-const generateClassName = createGenerateClassName({
-  productionPrefix: "single-spa-",
-  seed: "pk-"
-});
 
 export default function Root(props) {
   const [darkMode, setDarkMode] = React.useState(true);
@@ -35,11 +26,7 @@ export default function Root(props) {
   }, []);
 
   return (
-    <ThemeProvider
-      theme={theme}
-      generateClassName={generateClassName}
-      injectFirst
-    >
+    <ThemeProvider theme={theme}>
       <CssBaseline />
       <NavBar
         title={"Pokedex SSR"}
