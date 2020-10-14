@@ -21,7 +21,7 @@ export default function Root(props) {
   React.useEffect(() => {
     const jssStyles = document.querySelector("#jss-server-side");
     if (jssStyles) {
-      jssStyles.parentElement.removeChild(jssStyles);
+      //   jssStyles.parentElement.removeChild(jssStyles);
     }
   }, []);
 
