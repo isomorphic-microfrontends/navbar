@@ -26,10 +26,9 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function NavBar(props) {
-  const { title, themeChange } = props;
+export default function NavBar({ title, themeChange }) {
   const theme = useTheme();
-  const classes = useStyles(props);
+  const classes = useStyles();
   return (
     <div className={classes.root}>
       <AppBar position="static">

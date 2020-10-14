@@ -1,7 +1,7 @@
 {
   "scripts": {
     "start": "webpack-dev-server",
-    "build": "webpack",
+    "build": "webpack --mode=production",
     "analyze": "webpack --mode=production --env.analyze=true",
     "lint": "eslint src",
     "prettier": "prettier --write './**'",
