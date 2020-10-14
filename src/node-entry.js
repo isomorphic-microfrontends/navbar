@@ -16,7 +16,9 @@ export function serverRender(props) {
 
   // Grab the CSS from the sheets.
   const css = sheets.toString();
-
-  const assets = `<style id="jss-server-side">${css}</style>`;
+  const addFont = `<link  rel="stylesheet"
+                    href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+                  />`;
+  const assets = `${addFont}<style id="jss-server-side">${css}</style>`;
   return { content: htmlStream, assets };
 }
