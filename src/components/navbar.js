@@ -17,11 +17,12 @@ const useStyles = makeStyles(theme => ({
   menuButton: {
     marginRight: theme.spacing(2)
   },
-  title: {
+  appTitle: {
     flexGrow: 1
   },
   sectionButtons: {
-    display: "flex"
+    display: "flex",
+    marginRight: theme.spacing(2)
   }
 }));
 
@@ -40,7 +41,7 @@ export default function NavBar({ title, themeChange }) {
           >
             <HomeIcon />
           </IconButton>
-          <Typography variant="h6" className={classes.title}>
+          <Typography variant="h6" className={classes.appTitle}>
             {title}
           </Typography>
           <div className={classes.sectionButtons}>
