@@ -6,9 +6,9 @@ import Brightness7Icon from "@material-ui/icons/Brightness7";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
-import Button from "@material-ui/core/Button";
 import IconButton from "@material-ui/core/IconButton";
-import MenuIcon from "@material-ui/icons/Menu";
+import HomeIcon from "@material-ui/icons/Home";
+import GitHubIcon from "@material-ui/icons/GitHub";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -19,6 +19,9 @@ const useStyles = makeStyles(theme => ({
   },
   title: {
     flexGrow: 1
+  },
+  sectionButtons: {
+    display: "flex"
   }
 }));
 
@@ -33,20 +36,34 @@ export default function NavBar({ title, themeChange }) {
             edge="start"
             className={classes.menuButton}
             color="inherit"
-            aria-label="menu"
+            aria-label="home"
           >
-            <MenuIcon />
+            <HomeIcon />
           </IconButton>
           <Typography variant="h6" className={classes.title}>
             {title}
           </Typography>
-          <Button color="inherit" onClick={() => themeChange()}>
-            {theme.palette.type !== "dark" ? (
-              <Brightness4Icon fontSize="small" />
-            ) : (
-              <Brightness7Icon fontSize="small" />
-            )}
-          </Button>
+          <div className={classes.sectionButtons}>
+            <IconButton
+              aria-label="darkMode"
+              color="inherit"
+              onClick={() => themeChange()}
+            >
+              {theme.palette.type !== "dark" ? (
+                <Brightness4Icon />
+              ) : (
+                <Brightness7Icon />
+              )}
+            </IconButton>
+            <IconButton
+              aria-label="github"
+              color="inherit"
+              target="_blank"
+              href="https://github.com/isomorphic-microfrontends"
+            >
+              <GitHubIcon />
+            </IconButton>
+          </div>
         </Toolbar>
       </AppBar>
     </div>

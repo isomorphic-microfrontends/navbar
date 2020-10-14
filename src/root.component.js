@@ -28,7 +28,10 @@ export default function Root(props) {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <NavBar title={props.name} themeChange={() => setDarkMode(!darkMode)} />
+      <NavBar
+        title={"Pokedex SSR"}
+        themeChange={() => setDarkMode(!darkMode)}
+      />
     </ThemeProvider>
   );
 }
