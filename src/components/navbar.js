@@ -42,9 +42,9 @@ export default function NavBar(props) {
           >
             <HomeIcon />
           </IconButton>
-          <Typography variant="h6" className={classes.root}>
-            {title}
-          </Typography>
+          <div className={classes.appTitle}>
+            <Typography variant="h6">{title}</Typography>
+          </div>
           <div className={classes.sectionButtons}>
             <IconButton
               aria-label="darkMode"
