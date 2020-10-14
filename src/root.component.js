@@ -1,8 +1,17 @@
 import React from "react";
-import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
+import {
+  createMuiTheme,
+  ThemeProvider,
+  createGenerateClassName
+} from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import NavBar from "./components/navbar";
 // import theme from "./theme";
+
+const generateClassName = createGenerateClassName({
+  productionPrefix: "single-spa-",
+  seed: "pk-"
+});
 
 export default function Root(props) {
   const [darkMode, setDarkMode] = React.useState(true);
@@ -21,12 +30,16 @@ export default function Root(props) {
   React.useEffect(() => {
     const jssStyles = document.querySelector("#jss-server-side");
     if (jssStyles) {
-      //   jssStyles.parentElement.removeChild(jssStyles);
+      jssStyles.parentElement.removeChild(jssStyles);
     }
   }, []);
 
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider
+      theme={theme}
+      generateClassName={generateClassName}
+      injectFirst
+    >
       <CssBaseline />
       <NavBar
         title={"Pokedex SSR"}
