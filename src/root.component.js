@@ -1,10 +1,14 @@
 import React from "react";
+import { BrowserRouter, Redirect, Route, StaticRouter } from "react-router-dom";
 import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import NavBar from "./components/navbar";
 // import theme from "./theme";
 
+const isBrowser = () => typeof window !== "undefined";
+
 export default function Root(props) {
+  const inputRef = React.useRef(null);
   const [darkMode, setDarkMode] = React.useState(true);
   const theme = React.useMemo(
     () =>
@@ -25,13 +29,41 @@ export default function Root(props) {
     }
   }, []);
 
+  const handleDarkMode = () => {
+    const event = new CustomEvent("mode-event", {
+      detail: !darkMode,
+      bubbles: true,
+      cancelable: false,
+      composed: true // makes the event jump shadow DOM boundary); */
+    });
+    inputRef.current.dispatchEvent(event);
+    setDarkMode(!darkMode);
+  };
+
+  const RootChildren = () => (
+    <>
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        <div ref={inputRef}>
+          <NavBar title={"Pokedex SSR"} themeChange={() => handleDarkMode()} />
+        </div>
+      </ThemeProvider>
+      <Route exact path="/">
+        <Redirect to="/pokemons" />
+      </Route>
+    </>
+  );
+
+  if (isBrowser()) {
+    return (
+      <BrowserRouter basename="/">
+        <RootChildren />
+      </BrowserRouter>
+    );
+  }
   return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
-      <NavBar
-        title={"Pokedex SSR"}
-        themeChange={() => setDarkMode(!darkMode)}
-      />
-    </ThemeProvider>
+    <StaticRouter basename="/">
+      <RootChildren />
+    </StaticRouter>
   );
 }
