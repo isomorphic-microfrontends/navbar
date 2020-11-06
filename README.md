@@ -22,7 +22,7 @@ localStorage.setItem('devtools');
 window.location.reload();
 ```
 
-You should now see the [import-map-overrides](https://github.com/joeldenning/import-map-overrides) UI, which is a yellowish rectangle at the bottom right of the web page. Click on the rectangle, then click on `@isomorphic-mf/navbar`. Set the URL to be the port number (`8080`) that was noted earlier.
+You should now see the [import-map-overrides](https://github.com/joeldenning/import-map-overrides) UI, which is a yellowish rectangle at the bottom right of the web page. Click on the rectangle, then click on `@isomorphic-mf/navbar`. Set the URL to be the port number (`8080`) that was noted earlier. Now do the same for `@isomorphic-mf/navbar/`, except set the URL to http://localhost:8080/
 
 Reload the page.
 
