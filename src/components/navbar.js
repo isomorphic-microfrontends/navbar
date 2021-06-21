@@ -1,8 +1,10 @@
 import React from "react";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
+import { navigateToUrl } from "single-spa";
 
 import Brightness4Icon from "@material-ui/icons/Brightness4";
 import Brightness7Icon from "@material-ui/icons/Brightness7";
+import TrainIcon from "@material-ui/icons/Train";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
@@ -51,6 +53,8 @@ export default function NavBar({ title, themeChange }) {
             className={classes.menuButton}
             color="inherit"
             aria-label="home"
+            href="/"
+            onClick={navigateToUrl}
           >
             <HomeIcon />
           </IconButton>
@@ -68,6 +72,14 @@ export default function NavBar({ title, themeChange }) {
               ) : (
                 <Brightness7Icon />
               )}
+            </IconButton>
+            <IconButton
+              aria-label="Pokemon Trainers"
+              color="inherit"
+              href="/trainers"
+              onClick={navigateToUrl}
+            >
+              <TrainIcon />
             </IconButton>
             <IconButton
               aria-label="github"
